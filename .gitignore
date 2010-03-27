@@ -2,3 +2,4 @@ config/database.yml
 log/*
 public/stylesheets/compiled/*
 tmp/sass-cache/*
+.project
