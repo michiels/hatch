@@ -3,7 +3,7 @@ class TriggersController < ApplicationController
     trigger = Trigger.new
     trigger.raw_parameters = params
     trigger.save
-    
+
     render :text => "[OK]"
   end
   
