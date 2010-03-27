@@ -14,9 +14,6 @@ class ApplicationController < ActionController::Base
   def detect_iphone
     if request.user_agent.include?("iPhone") then
       request.format = :iphone
-      render :layout => 'application.iphone.haml'
-    else
-      render :layout => 'application.html.haml'
     end
   end
   

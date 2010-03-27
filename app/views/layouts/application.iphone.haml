@@ -10,9 +10,31 @@
         body{
           margin:0px;
           padding:0px;
-          background: url('../images/iphone/bg-pattern.png') repeat-y top center;
-          height:700px;
+          background: url('/images/iphone/bg-pattern.png') repeat-y top center;
+          height:100%;
+        }
+        img{
+          border:0px;
+        }
+        #wrapper{
+          position:relative;
+          margin:0 auto;
+          max-width:480px;
+          height:100%;
+          background:url('/images/iphone/bg.png') no-repeat top center;
+        }
+        #header, #footer{
+          width:100%;
+          height:54px;
+          background:url('/images/iphone/header-bg.png') repeat-x;
+        }
+        #footer{
+          position:relative;
+          bottom:0px;
         }
 
   %body
-    = yield
+    %div#wrapper
+      %div#header
+      = yield
+      %div#footer

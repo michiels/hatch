@@ -1,7 +1,7 @@
 ActionController::Routing::Routes.draw do |map|
   map.resources :triggers
 
-  map.resources :devices do |devices|
+  map.resources :devices, :collection => { :fire => :post } do |devices|
     devices.resources :sensor
   end
 
