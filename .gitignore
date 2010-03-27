@@ -3,3 +3,5 @@ log/*
 public/stylesheets/compiled/*
 tmp/sass-cache/*
 .project
+Capfile
+config/deploy.rb
