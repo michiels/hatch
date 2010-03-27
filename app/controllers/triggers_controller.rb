@@ -4,6 +4,11 @@ class TriggersController < ApplicationController
     trigger.raw_parameters = params
     trigger.save
     
+    
+    if params["triggerID"] == "5"
+      Device::shoot_rockets
+    end
+    
     render :text => "[OK]"
   end
   
