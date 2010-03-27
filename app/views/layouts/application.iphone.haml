@@ -1,0 +1,18 @@
+!!! XML
+!!!
+%html{:xmlns => "http://www.w3.org/1999/xhtml", "xml:lang" => "en", :lang => "en"}  
+  %head
+    %title= 'Hatch - mobile'
+    %meta{'http-equiv' => "content-type", :content => "text/html;charset=UTF-8"}
+    %meta{'id' => 'viewport', 'name' => 'viewport', 'content' => 'width=320; initial-scale=1.0; maximum-scale=1.0; user-scalable=0;'}
+    %style{:type => "text/css", :media => "screen"}
+      :plain
+        body{
+          margin:0px;
+          padding:0px;
+          background: url('../images/iphone/bg-pattern.png') repeat-y top center;
+          height:700px;
+        }
+
+  %body
+    = yield
