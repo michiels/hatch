@@ -1,10 +1,9 @@
 class Sensor < ActiveRecord::Base
-  validates_presence_of :slot
+  validates_presence_of :pin_number
   validates_presence_of :sensor_type
-  
-  validates_numericality_of :slot, :greater_than_or_equal_to => 1, :less_than_or_equal_to => 9
-  
-  validates_uniqueness_of :slot, :scope => :device_id
+  validates_uniqueness_of :pin_number
   
   belongs_to :device
+  
+  Modes = ["rx", "tx", "i", "p", "i", "p", "p", "i", "i", "p", "a", "a", "a", "a"]
 end

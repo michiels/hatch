@@ -12,7 +12,7 @@ class ApplicationController < ActionController::Base
 
   # Detect if user agent is iPhone
   def detect_iphone
-    if request.user_agent.include?("iPhone") then
+    if request.user_agent && request.user_agent.include?("iPhone")
       request.format = :iphone
     end
   end

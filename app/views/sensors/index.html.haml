@@ -1,0 +1,17 @@
+-if !@sensors.nil?
+  %table
+    %thead
+      %tr
+        %th Sensor type
+        %th Pin number
+        %th Edit
+        %th Delete
+    %tbody
+      - @sensors.each do |sensor|
+        %tr
+          %td=sensor.sensor_type
+          %td=sensor.pin_number
+          %td=link_to ( 'edit', edit_device_sensor_path(@device, sensor) )
+          %td=link_to ( 'delete', device_sensor_path(@device, sensor), :method => 'delete' )
+
+= link_to "Create a news sensor", new_device_sensor_path( :sensor_id => params[:sensor_id] )

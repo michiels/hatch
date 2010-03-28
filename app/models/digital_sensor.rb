@@ -1,0 +1,2 @@
+class DigitalSensor < Sensor  
+end
