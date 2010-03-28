@@ -1,6 +1,6 @@
-class Device < ActiveRecord::Base    
-  has_many :sensors
-  
+class Device < ActiveRecord::Base  
+  has_many :sensors, :dependent => :destroy
+
   validates_presence_of :device_id
     
   def self.shoot_rockets
