@@ -1,8 +1,15 @@
 class TriggersController < ApplicationController
   def new
+    
+    # Save the trigger into the database.
     trigger = Trigger.new
     trigger.raw_parameters = params
     trigger.save
+    
+    # Do something based on the parameters of the trigger.
+    
+    
+    # Return text based on the return parameters.
 
     render :text => "[OK]"
   end
