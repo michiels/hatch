@@ -1,0 +1,2 @@
+module SensorTriggersHelper
+end

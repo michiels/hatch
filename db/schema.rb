@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100328142552) do
+ActiveRecord::Schema.define(:version => 20100515140831) do
 
   create_table "devices", :force => true do |t|
     t.string   "api_key",    :null => false
@@ -18,12 +18,28 @@ ActiveRecord::Schema.define(:version => 20100328142552) do
     t.string   "device_id"
   end
 
+  create_table "sensor_actions", :force => true do |t|
+    t.integer  "sensor_trigger_id"
+    t.string   "what"
+    t.text     "what_data"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "sensor_triggers", :force => true do |t|
+    t.integer  "sensor_id_id"
+    t.integer  "device_id_id"
+    t.string   "condition"
+    t.string   "condition_value"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "sensors", :force => true do |t|
     t.string   "sensor_type", :null => false
     t.integer  "device_id"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "type"
     t.integer  "pin_number",  :null => false
     t.integer  "value"
   end

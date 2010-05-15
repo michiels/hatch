@@ -1,0 +1,27 @@
+%h1 My Sensors
+
+%table
+  %thead
+    %tr
+      %th Pin/Slot
+      %th Sensor
+      %th Current value
+      %th
+  - @device.sensors.each do |sensor|
+    %tr
+      %td= sensor.pin_number
+      %td= sensor.sensor_type
+      %td= sensor.value
+      %td= link_to "Remove this sensor", device_sensor_path(@device, sensor), :method => :delete, :confirm => "Are you sure you want to remove this sensor?"
+      
+%h2 Add a sensor
+
+- form_for [@device, @sensor] do |form|
+  %p
+    %label Pin/Slot
+    = form.select :pin_number, 0..13
+  %p
+    %label Sensor
+    = form.select :sensor_type, ['motion', 'pod']
+  %p
+    = form.submit "Add the sensor"

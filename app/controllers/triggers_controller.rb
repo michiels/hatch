@@ -11,23 +11,26 @@ class TriggersController < ApplicationController
       # Do something based on the parameters of the trigger.
       params.each do |param_key, param_value|
         
-        arduino_pin = param_key[1] # This is actually dangerous because we don't use
+        arduino_pin = param_key[1..-1] # This is actually dangerous because we don't use
                                # a regexp for recognizing an arduino get format.
-        
-        case param_key[0]
+                               
+                
+        case param_key[0..0]
         when "v" # Update the sensor with the value from Arduino
           sensor = device.sensors.find_by_pin_number(arduino_pin)
           sensor.value = param_value
           sensor.save
         end
       
-        mode = Device::Modes[arduino_pin]
       end
       
-      render :text => "[NOK]"
+      enabled_sensors = []
       
-    elsif params.has_key?("canihazcookie")
-      render :text => params[:callback] + "(" + {:status => rand(2)}.to_json + ")"
+      device.sensors.each do |sensor|
+        enabled_sensors << "e#{sensor.pin_number}=1"
+      end
+      
+      render :text => "[" + enabled_sensors.join("|") + "|t2=1|w=8000|t10=250]"
     else
       
       render :text => "[ALIVE]"

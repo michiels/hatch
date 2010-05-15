@@ -1,8 +1,11 @@
 ActionController::Routing::Routes.draw do |map|
+  map.resources :sensor_actions
+
   map.resources :triggers
 
-  map.resources :devices, :collection => { :fire => :post } do |devices|
-    devices.resources :sensor
+  map.resources :devices do |devices|
+    devices.resources :sensors
+    devices.resources :sensor_triggers
   end
 
   # The priority is based upon order of creation: first created -> highest priority.
