@@ -1,0 +1,11 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  sensor_trigger_id: MyString
+  what: MyString
+  what_data: MyText
+
+two:
+  sensor_trigger_id: MyString
+  what: MyString
+  what_data: MyText

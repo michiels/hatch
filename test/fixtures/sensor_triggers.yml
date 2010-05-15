@@ -1,0 +1,11 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  sensor_id: 1
+  condition: MyString
+  condition_value: MyString
+
+two:
+  sensor_id: 1
+  condition: MyString
+  condition_value: MyString

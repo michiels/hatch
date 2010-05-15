@@ -1,0 +1,18 @@
+%h1 My Actions
+
+- form_for @device do |form|
+  - form.fields_for :sensor_triggers do |trigger_fields|
+    %p
+      If sensor
+      = trigger_fields.object.id
+      is
+      = trigger_fields.select :condition, ['triggered']
+      then
+    - trigger_fields.object.sensor_actions.build
+    - trigger_fields.fields_for :sensor_actions do |action_fields|
+      %p
+        = action_fields.select :what, ['send_email']
+        to
+        = action_fields.text_field :what_data
+  %p
+    = submit_tag "Save actions"
