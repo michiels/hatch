@@ -1,9 +1,15 @@
 // This import applies a global reset to any page that imports this stylesheet.
 @import blueprint/reset.sass
+@import compass/utilities.sass
 // To configure blueprint, edit the partials/base.sass file.
 @import partials/base.sass
+@import partials/header.sass
+@import partials/sidebar.sass
+@import partials/content.sass
+
 // Import all the default blueprint modules so that we can access their mixins.
 @import blueprint
+
 // Import the non-default scaffolding module.
 @import blueprint/modules/scaffolding.sass
 
@@ -23,18 +29,24 @@ form.bp
   +blueprint-form
 
 // Page layout can be done using mixins applied to your semantic classes and IDs:
-body.three-col
+body
+  :background-color #F5F5F5
   #container
     +container
   #header, #footer
     +column(!blueprint_grid_columns)
+  #footer
+    :margin-top 20px
+    :border-top 1px solid #007EAE
+    :text-align center
+    :font-family Helvetica
+    :font-size 12px
   #sidebar
     // One third of the grid columns, rounding down. With 24 cols, this is 8.
-    !sidebar_columns = floor(!blueprint_grid_columns / 3)
-    +column(!sidebar_columns)
+    +column(3)
+    :margin-left 35px
   #content
     // Two thirds of the grid columns, rounding up.
     // With 24 cols, this is 16.
-    !content_columns = ceil(2 * !blueprint_grid_columns / 3)
     // true means it's the last column in the row
-    +column(!content_columns, true)
+    +column(8, true)

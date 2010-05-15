@@ -3,9 +3,73 @@
 %html{:xmlns => "http://www.w3.org/1999/xhtml", "xml:lang" => "en", :lang => "en"}  
   %head
     %title= 'Hatch - desktop'
+    = stylesheet_link_tag 'compiled/screen.css', :media => 'screen, projection'
+    = stylesheet_link_tag 'compiled/print.css', :media => 'print'
     %meta{'http-equiv' => "content-type", :content => "text/html;charset=UTF-8"}
   %body
-    - if flash[:notice]
-      %div.notice
-        =flash[:notice]
-    = yield
+    #container
+      #header
+        #topheader
+          .left
+            =link_to("faq", "#")
+            |
+            =link_to("blog", "#")
+            |
+            =link_to("store", "#")
+            
+          .right
+            username
+            =text_field ("username", "hallo?")
+            password
+            =text_field ("username", "hallo?")
+            =link_to("Forgot password?", "#")
+        #bottomheader
+          .left
+            =image_tag("logo.png")
+          .right
+            #menu
+              %ul
+                %li 
+                  about
+                %li 
+                  hardware
+                %li 
+                  register
+      #sidebar
+        #new
+          ADD A NEW SENSOR +
+        #status
+          %ul
+            %li
+              Status of sensor x
+            %li
+              Status of sensor x          
+            %li
+              Status of sensor x            
+        #filters.block
+          %ul
+            %li
+              %h2
+                FILTERS
+              %p
+                hahaasdhsjdsldkasjdla
+            %li
+              Status of sensor x          
+        #usage.block
+          %ul
+            %li
+              %h2
+                YOUR USAGE
+              %p
+                hahaasdhsjdsldkasjdla
+            %li
+              Status of sensor x             
+              
+      %div#content
+        content
+      - if flash[:notice]
+        %div.notice
+          =flash[:notice]
+          = yield
+      %div#footer
+        The Sensor Project is © PWTHINGS 2010. Worldwide patents pending. Developed from the Internal Prototyping Weekend Special Surprise
