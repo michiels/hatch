@@ -2,13 +2,16 @@ class SensorsController < ApplicationController
   
   def index
     @device = Device.find(params[:device_id])
-    
-    @sensor = @device.sensors.new
+    @sensors = @device.sensors.find(:all)
+  end
+  
+  def new
+    @device = Device.find(params[:device_id])
+    @devices = Device.find(:all)
   end
   
   def create
     @device = Device.find(params[:device_id])
-    
     @sensor = @device.sensors.new(params[:sensor])
     
     if @sensor.save

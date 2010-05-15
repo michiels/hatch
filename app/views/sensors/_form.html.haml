@@ -1,0 +1,10 @@
+%div
+  Device select:
+  = collection_select(:sensor, :device_id, @devices, :id, :id)
+%div
+  Sensor type:
+  = f.text_field :sensor_type
+%div
+  Pin number:
+  = f.text_field :pin_number
+= submit_tag "Create"
